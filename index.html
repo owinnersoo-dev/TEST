@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>경북대 도토리원돈까스 리뷰 · V6 AI · 네이버 글쓰기</title>
+<title>대구 수성구 노티드 도넛 · 엄마의 심부름 · 아빠와 아이 V6 AI · 네이버 글쓰기</title>
 <style>
 *{box-sizing:border-box}
 :root{
  --bg:#f6f4f1;--card:#fff;--ink:#25211f;--muted:#746e69;--line:#e6dfd9;
- --brand:#03c75a;--brand2:#128548;--soft:#eefaf3;--brown:#704238;--danger:#b33a31;
+ --brand:#f2b6c6;--brand2:#a9576e;--soft:#fff3f6;--brown:#704238;--danger:#b33a31;
  --photo:#f4f0ec
 }
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.68;word-break:keep-all}
 .wrap{max-width:980px;margin:auto;padding:14px 12px 100px}
-.hero{background:linear-gradient(135deg,#0caf55,#02c75a);color:#fff;border-radius:22px;padding:27px 22px;margin-bottom:8px}
+.hero{background:linear-gradient(135deg,#f2b6c6,#f6cf7d);color:#fff;border-radius:22px;padding:27px 22px;margin-bottom:8px}
 .hero small{font-weight:800;opacity:.88}.hero h1{font-size:30px;line-height:1.25;margin:6px 0 8px}.hero p{font-size:14px;margin:0;opacity:.92}
 .toolbar{position:sticky;top:0;z-index:40;display:flex;gap:8px;overflow-x:auto;padding:10px 0;background:rgba(246,244,241,.94);backdrop-filter:blur(9px)}
 button,.filebtn{appearance:none;border:0;border-radius:12px;padding:11px 14px;font-size:14px;font-weight:850;cursor:pointer;white-space:nowrap}
@@ -26,7 +26,7 @@ button,.filebtn{appearance:none;border:0;border-radius:12px;padding:11px 14px;fo
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}
 .field{display:flex;flex-direction:column;gap:6px}.field label{font-size:13px;font-weight:850;color:#5e4d46}
 input,select,textarea{width:100%;border:1px solid #ddd6d1;border-radius:11px;padding:11px 12px;font:inherit;color:var(--ink);background:#fff;outline:none}
-input:focus,select:focus,textarea:focus{border-color:#68d997;box-shadow:0 0 0 3px rgba(3,199,90,.08)}
+input:focus,select:focus,textarea:focus{border-color:#e3a4b7;box-shadow:0 0 0 3px rgba(242,182,198,.18)}
 textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.85}.counter{text-align:right;font-size:12px;color:var(--muted);margin-top:6px}
 .rating-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.rating{display:grid;grid-template-columns:1fr 110px;gap:8px;align-items:center}.rating label{font-size:13px;font-weight:750}
 
@@ -76,7 +76,7 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
 .progress-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
 .progress-top strong{font-size:14px}.progress-top span{font-size:12px;color:var(--muted);font-weight:850}
 .progress-bar{height:12px;background:#e9e4df;border-radius:999px;overflow:hidden}
-.progress-fill{height:100%;width:0;background:var(--brand);transition:width .2s ease}
+.progress-fill{height:100%;width:0;background:var(--brand2);transition:width .2s ease}
 .photo-filter{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .photo-filter button{padding:7px 10px;font-size:12px}
 .filter-active{background:#222!important;color:#fff!important;border-color:#222!important}
@@ -103,13 +103,13 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
 
 <header class="hero">
  <small>FIELD PHOTO RECORD + NAVER BLOG WRITER</small>
- <h1>경북대 도토리원돈까스 · 상세 현장촬영 V6 AI · 네이버 글쓰기</h1>
- <p>경북대 북문 도토리원돈까스를 방문하면서 외관·웨이팅·샐러드바·돈가스·소스·리필·후식까지 촬영하고 네이버 후기형 글로 정리하는 단일 HTML입니다.</p>
+ <h1>대구 수성구 노티드 도넛 · 엄마의 도넛 심부름 · 아빠와 아이 V6 AI</h1>
+ <p>엄마가 부탁한 도넛을 사러 아빠와 아이가 함께 노티드 대구빌리브헤리티지에 다녀오는 과정을 출발·매장 구경·도넛 고르기·포장·심부름 완료까지 촬영하고 네이버 가족 일상 후기형 글로 정리하는 단일 HTML입니다.</p>
 </header>
 
 <div class="toolbar">
  <button id="recordDraftBtn" class="primary">✨ 기록형 초안</button>
- <button id="naverDraftBtn" class="blog">N 도토리원 자연문장</button>
+ <button id="naverDraftBtn" class="blog">N 엄마의 도넛 심부름</button>
  <button id="aiDraftBtn" class="primary">🤖 AI 네이버 글</button>
  <button id="nextShotBtn" class="ghost">📸 다음 미촬영</button>
  <button id="copyBtn" class="ghost">📋 글 복사</button>
@@ -123,29 +123,30 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
 <section class="card">
 <h2>1. 방문 기본정보</h2>
 <div class="grid">
- <div class="field"><label for="store">매장명</label><input id="store" value="도토리원돈까스"></div>
- <div class="field"><label for="address">주소</label><input id="address" value="대구 북구 대학로23길 23 2층"></div>
+ <div class="field"><label for="store">매장명</label><input id="store" value="노티드 대구빌리브헤리티지"></div>
+ <div class="field"><label for="address">주소</label><input id="address" value="대구 수성구 수성동4가 2266 빌리브 헤리티지 근린생활시설 206호, 207호"></div>
  <div class="field"><label for="date">방문일</label><input id="date" type="date"></div>
- <div class="field"><label for="people">방문 인원</label><input id="people" placeholder="예: 4명"></div>
+ <div class="field"><label for="people">방문 인원</label><input id="people" value="아빠 + 아이" placeholder="예: 아빠 + 아이"></div>
  <div class="field"><label for="purpose">방문 목적</label>
-  <select id="purpose"><option>점심 식사</option><option>가족 외식</option><option>친구 모임</option><option>데이트</option><option>혼밥</option><option>저녁 식사</option><option>기타</option></select>
+  <select id="purpose"><option>엄마의 도넛 심부름</option><option>아빠와 아이 간식 사기</option><option>주말 나들이</option><option>도넛 포장</option><option>아이와 카페 방문</option><option>선물 구입</option><option>기타</option></select>
  </div>
  <div class="field"><label for="reservation">예약 여부</label>
-  <select id="reservation"><option>워크인</option><option>예약</option><option>대기 후 입장</option></select>
+  <select id="reservation"><option>현장 방문</option><option>포장 주문</option><option>예약/픽업</option><option>기타</option></select>
  </div>
- <div class="field full"><label for="menu">먹은 메뉴 / 주요 메뉴</label><input id="menu" placeholder="예: 덜매운찍먹 돈까스, 로제찍먹 돈까스, 매운부먹 돈까스"></div>
- <div class="field full"><label for="price">가격 / 결제 메모</label><input id="price" placeholder="예: 돈까스 1인 13,500원대 / 사이드 추가"></div>
+ <div class="field full"><label for="menu">엄마가 부탁한 도넛 / 구입 메뉴</label><input id="menu" placeholder="예: 우유 생크림 도넛, 딸기우유 생크림 도넛, 아이가 고른 도넛, 음료"></div>
+ <div class="field full"><label for="price">가격 · 결제 · 포장 메모</label><input id="price" placeholder="예: 도넛 4개 포장, 총 결제금액, 쇼핑백 여부, 포장 상태"></div>
 </div>
 </section>
 
 <section class="card">
-<h2>도토리원돈까스 방문 체크 포인트</h2>
+<h2>노티드 대구빌리브헤리티지 · 엄마의 심부름 체크 포인트</h2>
 <div class="note">
-<strong>공개 정보 기준 메모</strong><br>
-주소: 대구 북구 대학로23길 23 2층 · 경북대 북문 인근<br>
-대표 선택: 덜매운 / 매운 / 로제 + 부먹 / 찍먹<br>
-촬영 포인트: 식전 음료 → 샐러드바 → 돈가스 → 반개 리필 → 후식 순서<br>
-※ 영업시간·가격·서비스는 방문 시점에 달라질 수 있으니 현장에서 다시 확인하세요.
+<strong>공식 매장정보 기준 메모</strong><br>
+매장: 노티드 대구빌리브헤리티지<br>
+주소: 대구 수성구 수성동4가 2266 빌리브 헤리티지 근린생활시설 206호, 207호<br>
+오늘의 이야기: 엄마가 부탁한 도넛을 사러 아빠와 아이가 함께 출발하는 작은 심부름<br>
+촬영 포인트: 출발 → 외관·주차 → 도넛 진열대 → 아이가 고르는 순간 → 엄마가 부탁한 메뉴 확인 → 포장 → 집으로 출발 → 심부름 완료<br>
+※ 운영시간·판매 메뉴·가격·품절 여부는 방문 시점에 달라질 수 있으니 현장에서 확인하세요.
 </div>
 </section>
 
@@ -153,12 +154,12 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
 <h2>2. 현장 메모</h2>
 <p class="hint">완성 문장이 아니어도 됩니다. 단어와 짧은 메모만 남겨도 블로그 글 생성 시 자연스럽게 풀어씁니다.</p>
 <div class="grid">
- <div class="field full"><label for="first">첫인상 · 분위기</label><textarea id="first" placeholder="예: 경북대 북문 추억의 돈가스집, 대학가 분위기, 웨이팅 여부"></textarea></div>
- <div class="field"><label for="good">좋았던 점</label><textarea id="good" placeholder="예: 돈가스 바삭함, 소스 맛, 양 푸짐함, 리필 가능, 후식까지 좋음"></textarea></div>
- <div class="field"><label for="bad">아쉬웠던 점</label><textarea id="bad" placeholder="예: 덜매운 소스도 매콤함, 피크시간 웨이팅, 주차 불편"></textarea></div>
- <div class="field"><label for="service">서비스 · 좌석 · 편의</label><textarea id="service" placeholder="예: 셀프바 편함, 직원 친절, 혼밥 가능, 가족 방문도 괜찮음"></textarea></div>
- <div class="field"><label for="access">주차 · 접근성</label><textarea id="access" placeholder="예: 경북대 북문 도보 접근 좋음, 전용 주차 확인 필요, 인근 공영주차장"></textarea></div>
- <div class="field full"><label for="personal">내 느낌 · 꼭 남기고 싶은 말</label><textarea id="personal" placeholder="예: 다음에는 로제/매운맛 비교, 반개 리필까지 먹어보기, 후식까지 코스로 즐기기"></textarea></div>
+ <div class="field full"><label for="first">심부름 출발 · 매장에 도착한 아이의 첫 반응</label><textarea id="first" placeholder="예: 엄마 도넛 사러 간다고 하니 신나함, 노란 간판을 보고 먼저 발견함, 도넛 진열대를 보자 바로 구경하러 감"></textarea></div>
+ <div class="field"><label for="good">아빠와 아이가 즐거웠던 점</label><textarea id="good" placeholder="예: 아이가 직접 도넛을 고르는 재미, 진열대 구경, 포장박스가 예쁨, 엄마 심부름을 함께 해냈다는 뿌듯함"></textarea></div>
+ <div class="field"><label for="bad">아쉬웠던 점 · 미리 확인할 점</label><textarea id="bad" placeholder="예: 인기 도넛 품절, 대기, 아이가 이것저것 다 고르고 싶어함, 주차 동선, 포장 후 크림 도넛 보관 주의"></textarea></div>
+ <div class="field"><label for="service">직원 응대 · 매장 · 포장</label><textarea id="service" placeholder="예: 직원 친절, 주문 안내, 도넛 포장 상태, 매장 동선, 아이와 주문하기 편했는지"></textarea></div>
+ <div class="field"><label for="access">주차 · 찾아가는 길</label><textarea id="access" placeholder="예: 빌리브 헤리티지 주차 동선, 매장 찾기, 아이와 걸어가기 편한지, 포장 후 차량까지 이동"></textarea></div>
+ <div class="field full"><label for="personal">아빠가 남기고 싶은 심부름 이야기 · 아이의 한마디</label><textarea id="personal" placeholder="예: 엄마가 좋아할 도넛을 고르자고 말한 순간, 자기가 고른 도넛을 꼭 들고 가겠다고 함, 집에 가서 엄마에게 직접 건네고 싶어함"></textarea></div>
 </div>
 </section>
 
@@ -195,7 +196,7 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
  <div class="ai-head"><strong>🤖 AI 네이버 블로그 작성 설정</strong><span id="aiState" class="ai-state">연결 미설정</span></div>
  <div class="ai-grid">
   <div class="field full"><label for="aiEndpoint">AI 서버리스 API 주소</label><input id="aiEndpoint" placeholder="https://your-worker.workers.dev"></div>
-  <div class="field"><label for="aiTone">말투</label><select id="aiTone"><option value="natural">자연스러운 실제 방문 후기</option><option value="warm">따뜻한 가족 외식 후기</option><option value="concise">깔끔하고 간결하게</option><option value="detailed">사진·메모를 자세히</option></select></div>
+  <div class="field"><label for="aiTone">말투</label><select id="aiTone"><option value="natural">자연스러운 실제 방문 후기</option><option value="warm">따뜻한 아빠와 아이 심부름 후기</option><option value="concise">깔끔하고 간결하게</option><option value="detailed">사진·메모를 자세히</option></select></div>
   <div class="field"><label for="aiLength">글 길이</label><select id="aiLength"><option value="medium">보통</option><option value="short">짧게</option><option value="long">길게</option></select></div>
   <div class="field"><label for="aiEmoji">이모지</label><select id="aiEmoji"><option value="none">사용 안 함</option><option value="light">소량 사용</option></select></div>
   <div class="field"><label for="aiPhotoMemo">사진 메모 반영</label><select id="aiPhotoMemo"><option value="yes">반영</option><option value="no">반영하지 않음</option></select></div>
@@ -210,7 +211,7 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
 <h2>6. 글 생성</h2>
 <div class="modebox">
  <strong>✨ 기록형 초안</strong>은 사실과 사진기록을 항목별로 정리합니다.<br>
- <strong>N 도토리원 자연문장</strong>은 인터넷 없이 HTML 규칙으로 문장을 만듭니다.<br>
+ <strong>N 엄마의 도넛 심부름</strong>은 인터넷 없이 HTML 규칙으로 아빠와 아이의 심부름 이야기를 자연스럽게 만듭니다.<br>
  <strong>🤖 AI 네이버 글</strong>은 방문정보·메모·별점·사진 메모를 AI가 이해해 실제 후기처럼 다시 씁니다.
 </div>
 <h3>추천 제목</h3>
@@ -235,53 +236,53 @@ textarea{min-height:90px;resize:vertical}.draft{min-height:520px;line-height:1.8
 (() => {
 'use strict';
 
-const TEXT_KEY='dotoriwon_blog_writer_text_v6';
-const DB_NAME='dotoriwon_blog_writer_db_v6';
+const TEXT_KEY='knotted_daegu_heritage_errand_text_v6';
+const DB_NAME='knotted_daegu_heritage_errand_db_v6';
 const STORE_NAME='shots';
-const CUSTOM_KEY='dotoriwon_blog_writer_custom_shots_v6';
-const AI_KEY='dotoriwon_blog_writer_ai_settings_v6';
-const ratingNames=['돈가스 맛','소스 만족도','양·리필 만족도','셀프바·후식','직원 응대','가격 만족도','재방문 의사'];
+const CUSTOM_KEY='knotted_daegu_heritage_errand_custom_shots_v6';
+const AI_KEY='knotted_daegu_heritage_errand_ai_settings_v6';
+const ratingNames=['도넛 맛','아이 만족도','메뉴 선택','직원 응대','매장·포장','가격 만족도','재방문 의사'];
 const $=id=>document.getElementById(id);
 let db=null, saveTimer=null;
 let shotData={};
 let currentFilter='all';
 
 const baseGroups=[
- {id:'outside',title:'A. 외관 · 경북대 북문 접근',shots:[
-  {id:'EXT-W',title:'건물 외관 원경',hint:'건물과 매장 위치가 한눈에 보이게'},
-  {id:'SIGN',title:'도토리원돈까스 간판',hint:'상호명이 또렷하게 보이도록'},
-  {id:'ENT',title:'2층 올라가는 입구',hint:'처음 방문해도 입구를 찾을 수 있게'},
-  {id:'PARK',title:'주차 · 주변 도로',hint:'전용주차 여부와 인근 주차 동선 기록'}
+ {id:'mission',title:'A. 엄마의 도넛 심부름 · 출발',shots:[
+  {id:'MISSION',title:'엄마의 심부름 메모 · 주문 확인',hint:'엄마가 부탁한 도넛 종류나 수량을 출발 전에 기록'},
+  {id:'START',title:'아빠와 아이 출발',hint:'도넛을 사러 가는 길의 자연스러운 시작 장면'},
+  {id:'CAR',title:'차 안 · 이동 중',hint:'엄마 도넛 사러 간다는 이야기를 나누는 순간'},
+  {id:'ARRIVE',title:'노티드 도착한 아이',hint:'매장을 발견하거나 입구를 바라보는 첫 반응'}
  ]},
- {id:'inside',title:'B. 웨이팅 · 내부 · 좌석',shots:[
-  {id:'WAIT',title:'웨이팅 공간',hint:'대기 공간과 혼잡도, 냉방 등 편의 확인'},
-  {id:'INT-W',title:'매장 내부 전체',hint:'테이블 수와 전체 분위기가 보이게'},
-  {id:'SEAT',title:'좌석 · 테이블',hint:'혼밥·가족식사하기 편한지 기록'},
-  {id:'DETAIL',title:'매장 디테일',hint:'추억의 경양식 분위기나 기억에 남는 포인트'}
+ {id:'outside',title:'B. 노티드 도착 · 외관 · 주차',shots:[
+  {id:'EXT-W',title:'빌리브 헤리티지 · 매장 외관',hint:'건물과 노티드 위치가 한눈에 보이게'},
+  {id:'SIGN',title:'노티드 간판 · 입구',hint:'매장 이름과 입구가 또렷하게 보이도록'},
+  {id:'PARK',title:'주차 · 이동 동선',hint:'아이와 함께 주차 후 매장까지 이동하기 편한지 기록'},
+  {id:'INT-W',title:'매장 내부 전체',hint:'도넛 진열대와 주문 공간의 전체 분위기'},
+  {id:'DETAIL',title:'노티드 매장 디테일',hint:'패키지·캐릭터·인테리어 중 아이가 관심 가진 포인트'}
  ]},
- {id:'menu',title:'C. 메뉴 · 주문 · 셀프바',shots:[
-  {id:'MENU',title:'메뉴판 전체',hint:'덜매운·매운·로제, 부먹·찍먹과 가격이 읽히게'},
-  {id:'ORDER',title:'주문 메뉴 기록',hint:'이날 주문한 맛과 부먹/찍먹 선택 기록'},
-  {id:'WELCOME',title:'식전 음료',hint:'돈가스 전 제공되는 웰컴 드링크'},
-  {id:'SALADBAR',title:'샐러드바 전체',hint:'샐러드·김치·피클·밥 등 셀프바 구성'},
-  {id:'SALAD',title:'직접 담은 샐러드',hint:'실제 이용한 샐러드와 곁들임'},
-  {id:'BILL',title:'영수증 · 가격',hint:'인원수와 총 결제금액 기록'}
+ {id:'choose',title:'C. 아이와 도넛 고르기',shots:[
+  {id:'SHOW-W',title:'도넛 진열대 전체',hint:'어떤 도넛이 준비돼 있는지 한눈에 보이게'},
+  {id:'SHOW-C',title:'도넛 근접',hint:'크림·토핑·색감이 잘 보이게 가까이 촬영'},
+  {id:'MOMMENU',title:'엄마가 부탁한 도넛 찾기',hint:'심부름 목록과 실제 도넛을 확인하는 장면'},
+  {id:'CHOOSE',title:'아이가 도넛 고르는 순간',hint:'손가락으로 가리키거나 고민하는 자연스러운 모습'},
+  {id:'CHILD-PICK',title:'아이가 고른 도넛',hint:'왜 이 도넛을 골랐는지 아이의 한마디도 메모'},
+  {id:'MENU',title:'메뉴 · 가격 안내',hint:'구입 메뉴와 가격을 나중에 확인할 수 있게'}
  ]},
- {id:'tonkatsu',title:'D. 돈가스 · 소스 · 단면',shots:[
-  {id:'TON-W',title:'돈가스 전체',hint:'접시 전체와 크기가 느껴지게'},
-  {id:'TON-C',title:'튀김옷 근접',hint:'바삭한 튀김옷 질감이 보이게'},
-  {id:'CUT',title:'돈가스 단면',hint:'고기 두께와 속살 상태가 보이게'},
-  {id:'SAUCE',title:'소스 근접',hint:'덜매운·매운·로제 소스 색과 농도'},
-  {id:'DIP',title:'찍먹 한 점',hint:'돈가스를 소스에 찍은 장면'},
-  {id:'POUR',title:'부먹 한 접시',hint:'부먹 주문 시 소스가 스며든 상태'}
+ {id:'order',title:'D. 주문 · 결제 · 포장',shots:[
+  {id:'ORDER',title:'주문하는 아빠와 아이',hint:'엄마가 부탁한 메뉴와 아이 선택 메뉴를 함께 주문'},
+  {id:'PAY',title:'결제 · 영수증',hint:'총 금액과 구입 수량을 기록'},
+  {id:'BOX',title:'노티드 포장박스',hint:'포장 완료된 박스와 쇼핑백을 또렷하게'},
+  {id:'BOX-OPEN',title:'포장된 도넛 확인',hint:'이동 전 주문이 맞는지 박스 속 구성을 확인'},
+  {id:'HOLD',title:'아이가 도넛 들고 있는 모습',hint:'심부름 물건을 소중하게 들고 있는 장면'}
  ]},
- {id:'finish',title:'E. 리필 · 후식 · 마무리',shots:[
-  {id:'REFILL',title:'돈가스 반개 리필',hint:'추가 제공받은 돈가스 양 기록'},
-  {id:'DESSERT',title:'후식 전체',hint:'커피·음료·빙수 등 식사 후 디저트'},
-  {id:'BINGSU',title:'빙수 · 특별 디저트',hint:'주문하거나 제공받은 후식이 있다면'},
-  {id:'LAST',title:'식사 마무리 테이블',hint:'먹고 난 뒤 전체적인 식사 기록'},
-  {id:'EXIT',title:'나오면서 외관 한 컷',hint:'웨이팅이나 저녁 분위기까지 기록'},
-  {id:'ETC',title:'기타 꼭 남길 사진',hint:'위 항목에 없는 중요한 장면'}
+ {id:'finish',title:'E. 심부름 완료 · 엄마에게 가는 길',shots:[
+  {id:'EXIT',title:'노티드에서 나오는 순간',hint:'포장박스를 들고 매장을 나서는 모습'},
+  {id:'RETURN',title:'집으로 돌아가는 길',hint:'엄마에게 가져다줄 도넛을 챙겨 돌아가는 장면'},
+  {id:'DELIVERY',title:'엄마에게 도넛 전달',hint:'가능하다면 아이가 엄마에게 직접 건네는 순간'},
+  {id:'OPEN',title:'집에서 도넛 박스 오픈',hint:'심부름해 온 도넛을 함께 확인하는 장면'},
+  {id:'TASTE',title:'도넛 한입 · 가족 반응',hint:'실제로 먹어본 맛과 가족 반응을 기록'},
+  {id:'ETC',title:'오늘 꼭 남기고 싶은 한 컷',hint:'아빠와 아이의 작은 심부름에서 기억에 남은 순간'}
  ]}
 ];
 
@@ -539,11 +540,11 @@ function shotMemoNatural(){
 function validate(d){if(!d.store){alert('매장명을 먼저 입력해주세요.');$('store').focus();return false}return true}
 function avgRating(r){const v=Object.values(r);return v.length?(v.reduce((a,b)=>a+b,0)/v.length).toFixed(1):''}
 function titleCandidates(d){
- const area=d.address?d.address.split(' ').slice(0,2).join(' '):'';const menu=splitMemo(d.menu)[0]||'';
+ const area='대구 수성구';const donut=splitMemo(d.menu)[0]||'도넛';
  return [...new Set([
-  `${area?area+' ':''}${d.store} ${menu?menu+' ':''}직접 먹어본 후기`,
-  `${d.store} ${d.purpose} 후기｜사진으로 남긴 장점과 아쉬운 점`,
-  `${menu?menu+' 먹으러 간 ':''}${d.store}, 다시 방문할까? 솔직 후기`
+  `${area} 노티드 도넛｜엄마의 심부름, 아빠와 아이가 ${donut} 사러 다녀왔어요`,
+  `노티드 대구빌리브헤리티지 후기｜엄마 도넛 심부름을 맡은 아빠와 아이`,
+  `아이와 노티드 가는 날｜엄마가 부탁한 도넛 사러 간 작은 심부름 이야기`
  ].map(x=>x.replace(/\s+/g,' ').trim()))]
 }
 function renderTitles(list){
@@ -571,7 +572,7 @@ function saveAiSettings(){
 function clearAiSettings(){if(!confirm('AI 연결 설정을 삭제할까요?'))return;localStorage.removeItem(AI_KEY);$('aiEndpoint').value='';setAiState(false,'');$('aiResultInfo').textContent='AI 설정을 삭제했습니다.'}
 function buildAiPayload(){
  const d=collectText(), shots=shotEntries();
- return {task:'naver_blog_tonkatsu_review',version:'v6',
+ return {task:'naver_blog_family_errand_donut_review',version:'v6',
   settings:{tone:$('aiTone').value,length:$('aiLength').value,emoji:$('aiEmoji').value,includePhotoMemo:$('aiPhotoMemo').value==='yes'},
   visit:{store:d.store,address:d.address,date:d.date,people:d.people,purpose:d.purpose,reservation:d.reservation,menu:d.menu,price:d.price,firstImpression:d.first,good:d.good,bad:d.bad,service:d.service,access:d.access,personal:d.personal,ratings:d.ratings},
   photos:{count:shots.filter(x=>x.src).length,notes:$('aiPhotoMemo').value==='yes'?shots.filter(x=>x.memo).map(x=>({group:x.group,title:x.title,memo:x.memo})):[]},
@@ -617,12 +618,12 @@ function generateRecordDraft(){
  const d=collectText();if(!validate(d))return;const out=[];
  out.push(`${d.store} 방문 기록`,'');
  if(d.date)out.push(`방문일 : ${fmtDate(d.date)}`);if(d.address)out.push(`주소 : ${d.address}`);if(d.people)out.push(`방문 인원 : ${d.people}`);
- out.push(`방문 목적 : ${d.purpose}`,`예약 : ${d.reservation}`);if(d.menu)out.push(`주요 메뉴 : ${d.menu}`);if(d.price)out.push(`가격 메모 : ${d.price}`);out.push('');
+ out.push(`방문 목적 : ${d.purpose}`,`예약 : ${d.reservation}`);if(d.menu)out.push(`구입 도넛 · 메뉴 : ${d.menu}`);if(d.price)out.push(`가격 · 결제 · 포장 메모 : ${d.price}`);out.push('');
  if(d.first)out.push('■ 첫인상 · 분위기',commaList(d.first),'');
  if(d.good)out.push('■ 좋았던 점',commaList(d.good),'');
  if(d.bad)out.push('■ 아쉬웠던 점',commaList(d.bad),'');
- if(d.service)out.push('■ 셀프바 · 좌석 · 편의',commaList(d.service),'');
- if(d.access)out.push('■ 경북대 접근 · 주차',commaList(d.access),'');
+ if(d.service)out.push('■ 직원 응대 · 매장 · 포장',commaList(d.service),'');
+ if(d.access)out.push('■ 주차 · 찾아가는 길',commaList(d.access),'');
  if(d.personal)out.push('■ 내 메모',commaList(d.personal),'');
  const shots=shotEntries();
  if(shots.length){
@@ -635,25 +636,25 @@ function generateRecordDraft(){
 
 function generateNaverDraft(){
  const d=collectText();if(!validate(d))return;const out=[];
- const datePart=d.date?`${fmtDate(d.date)} `:'';const peoplePart=d.people?`${d.people}이 함께 `:'';
- out.push(`${datePart}${peoplePart}${d.store}에 다녀왔어요.`);
- if(d.address)out.push(`위치는 ${d.address}입니다.`);
- out.push(`이번에는 ${d.purpose}으로 방문했고, ${d.reservation==='예약'?'미리 예약해서 이용했어요.':d.reservation==='대기 후 입장'?'조금 기다린 뒤 입장했어요.':'별도 예약 없이 방문했어요.'}`,'');
- if(d.first){out.push('처음 들어갔을 때 분위기부터 이야기해보면,',joinNatural(d.first),'')}
- if(d.menu){const menus=splitMemo(d.menu);out.push(`이날 먹은 메뉴는 ${menus.join(', ')}였어요.`);if(menus.length)out.push(`특히 ${menus[0]}이 가장 먼저 기억에 남았습니다.`);out.push('')}
- if(d.good){out.push('먹으면서 좋았던 부분은,',joinNatural(d.good),'')}
- const sm=shotMemoNatural();if(sm){out.push('사진을 다시 보면서 정리해보면,',sm,'')}
- if(d.service){out.push('셀프바나 매장 이용 편의는',joinNatural(d.service),'')}
- if(d.access){out.push('경북대 북문 접근성과 주차는',joinNatural(d.access),'')}
- if(d.bad){out.push('아쉬웠던 점도 있었어요.',joinNatural(d.bad),'그래도 이 부분은 방문 시간이나 인원에 따라 체감이 조금 다를 수 있을 것 같아요.','')}
- if(d.price){out.push(`가격은 ${stripEnd(d.price)} 정도로 기억하고 있어요.`,'')}
+ const datePart=d.date?`${fmtDate(d.date)} `:'';
+ out.push(`${datePart}오늘은 엄마가 부탁한 도넛을 사러 아빠와 아이가 함께 ${d.store}에 다녀왔어요.`);
+ if(d.address)out.push(`매장은 ${d.address}에 있어요.`);
+ out.push('거창한 나들이라기보다 엄마의 작은 심부름 하나를 아이와 같이 해보기로 한 날이었습니다.','');
+ if(d.first){out.push('출발해서 매장에 도착했을 때 아이 반응은,',joinNatural(d.first),'')}
+ if(d.menu){const menus=splitMemo(d.menu);out.push(`엄마가 부탁했거나 이날 구입한 메뉴는 ${menus.join(', ')}였어요.`);if(menus.length>1)out.push(`엄마가 부탁한 메뉴를 먼저 확인하고, 아이에게도 하나 골라보라고 하니 도넛 고르는 시간이 작은 이벤트가 됐습니다.`);out.push('')}
+ if(d.good){out.push('아빠와 아이가 함께 심부름하면서 좋았던 건,',joinNatural(d.good),'')}
+ const sm=shotMemoNatural();if(sm){out.push('사진 순서대로 다시 보니 오늘의 심부름 과정이 더 잘 남아 있었어요.',sm,'')}
+ if(d.service){out.push('매장과 주문·포장 과정은',joinNatural(d.service),'')}
+ if(d.access){out.push('아이와 함께 찾아가면서 본 주차와 이동 동선은',joinNatural(d.access),'')}
+ if(d.bad){out.push('다만 미리 알고 가면 좋을 부분도 있었어요.',joinNatural(d.bad),'방문 시간이나 도넛 재고에 따라 상황은 달라질 수 있을 것 같아요.','')}
+ if(d.price){out.push(`가격과 결제·포장 관련해서는 ${stripEnd(d.price)} 정도로 기록해 둡니다.`,'')}
  const best=Object.entries(d.ratings).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k])=>k);const revisit=d.ratings['재방문 의사']??4;
- out.push('전체적으로 정리해보면,',`${best.join(', ')} 쪽의 만족도가 특히 높았고 제가 매긴 평균 평점은 ${avgRating(d.ratings)}/5 정도예요.`);
+ out.push('오늘은 도넛을 사는 것 자체보다, 엄마가 부탁한 일을 아이와 아빠가 같이 해냈다는 과정이 더 기억에 남았어요.',`${best.join(', ')} 쪽의 만족도가 높았고 전체 평균은 ${avgRating(d.ratings)}/5 정도로 남겨봅니다.`);
  if(d.personal)out.push(joinNatural(d.personal));
- out.push(revisit>=4?`${d.store}는 비슷한 상황이 생기면 다시 방문할 생각이 있는 곳으로 남았습니다.`:`${d.store}는 다음에는 상황과 메뉴를 조금 더 보고 재방문을 결정할 것 같아요.`,'','※ 이 글은 직접 방문한 뒤 남긴 개인적인 기록입니다.','');
- const tags=[d.store.replace(/\s+/g,''),...d.address.split(' ').slice(0,2),d.purpose.replace(/\s+/g,''),'맛집기록','방문후기'].filter(Boolean);
+ out.push(revisit>=4?`다음에도 엄마가 도넛 심부름을 시키면 아이와 같이 ${d.store}에 한 번 더 다녀와도 좋을 것 같아요.`:`다음 방문은 먹고 싶은 도넛과 상황을 보고 결정할 것 같아요.`,'','※ 이 글은 아빠와 아이가 직접 다녀온 개인적인 일상 기록입니다.','');
+ const tags=['대구수성구','노티드','노티드대구빌리브헤리티지','노티드도넛','아이와가볼만한곳','아빠육아','엄마심부름'].filter(Boolean);
  out.push([...new Set(tags)].map(x=>'#'+x).join(' '));
- $('draft').value=out.join('\n');renderTitles(titleCandidates(d));updateTextViews();saveText(false);status('사진 메모까지 반영해 자연스러운 네이버 블로그 글로 정리했습니다.');$('draft').scrollIntoView({behavior:'smooth',block:'start'})
+ $('draft').value=out.join('\n');renderTitles(titleCandidates(d));updateTextViews();saveText(false);status('엄마의 도넛 심부름 이야기를 네이버 블로그 글로 정리했습니다.');$('draft').scrollIntoView({behavior:'smooth',block:'start'})
 }
 
 async function copyText(text){
@@ -664,7 +665,7 @@ function resetDraft(){if(!confirm('생성된 글만 지울까요?'))return;$('dr
 async function resetAll(){
  if(!confirm('기본정보, 메모, 글, 사진을 모두 초기화할까요?'))return;
  localStorage.removeItem(TEXT_KEY);localStorage.removeItem(CUSTOM_KEY);shotData={};await clearShotDB();
- document.querySelectorAll('input[type=text],input[type=date],textarea').forEach(x=>x.value='');$('purpose').value='점심 식사';$('reservation').value='워크인';renderRatings({});renderShotGroups();
+ document.querySelectorAll('input[type=text],input[type=date],textarea').forEach(x=>x.value='');$('purpose').value='엄마의 도넛 심부름';$('reservation').value='현장 방문';renderRatings({});renderShotGroups();
  $('titles').innerHTML='<div class="note">글을 생성하면 제목 후보가 표시됩니다.</div>';updateTextViews();status('전체 초기화했습니다.')
 }
 
