@@ -1,55 +1,451 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>나의 자동차 점검상황표</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>성주 리베볼 할로윈 리뷰 INDEX</title>
 <style>
-:root{--navy:#173b63;--blue:#2473ad;--bg:#eef3f7;--line:#d7e0e8;--red:#c83b48;--green:#23805c;--amber:#b97916;--ink:#17212b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif}button,input,select,textarea{font:inherit}.app{max-width:1100px;margin:auto;padding:18px 14px 90px}.hero{background:linear-gradient(135deg,#102f50,#287bb4);color:#fff;padding:24px 20px;border-radius:20px;box-shadow:0 10px 28px #173b6330}.hero h1{margin:0 0 6px;font-size:clamp(25px,6vw,38px)}.hero p{margin:0;opacity:.84}.vehicle,.toolbar,.summary{background:#fff;border-radius:16px;padding:14px;margin-top:14px;box-shadow:0 4px 18px #173b6310}.vehicle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.field label{display:block;font-size:12px;color:#617083;margin:0 0 5px}.field input{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdff}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{text-align:center;padding:10px;border-radius:12px;background:#f5f8fb}.stat b{display:block;font-size:22px}.stat span{font-size:12px;color:#687789}.toolbar{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:8px;z-index:10}.btn{border:0;border-radius:10px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e8eef4;color:#25435d}.btn.primary{background:var(--navy);color:#fff}.btn.danger{color:var(--red)}.cards{display:grid;gap:12px;margin-top:14px}.card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:15px;box-shadow:0 4px 15px #173b630d}.card[data-status="교체 필요"]{border-left-color:var(--red)}.card[data-status="점검 필요"]{border-left-color:var(--amber)}.card[data-status="양호"]{border-left-color:var(--green)}.head{display:flex;gap:10px;align-items:center;margin-bottom:12px}.drag{font-size:23px;color:#8794a1;cursor:grab;touch-action:none}.name{font-size:19px;font-weight:800;border:0;border-bottom:1px dashed #bac7d2;min-width:0;flex:1;padding:5px}.badge{border-radius:99px;padding:6px 9px;background:#edf3f8;font-size:12px;font-weight:800}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.grid .wide{grid-column:span 2}.grid input,.grid select,.grid textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px;background:#fff}.grid textarea{min-height:65px;resize:vertical}.actions{display:flex;justify-content:flex-end;margin-top:9px}.empty{text-align:center;padding:40px;color:#718194}.foot{font-size:12px;color:#6d7b88;line-height:1.55;margin:18px 4px}.hidden{display:none}
-@media(max-width:760px){.vehicle,.summary{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.grid .wide{grid-column:span 2}.toolbar{overflow-x:auto;flex-wrap:nowrap}.btn{white-space:nowrap}.card{padding:13px 11px}.badge{font-size:11px}}
-@media print{body{background:#fff}.app{max-width:none;padding:0}.toolbar,.actions,.foot{display:none}.hero{box-shadow:none}.card{break-inside:avoid;box-shadow:none}.vehicle,.summary{box-shadow:none}.cards{grid-template-columns:1fr}.field input,.grid input,.grid select,.grid textarea,.name{border:0;padding-left:0}.drag{display:none}}
-</style></head>
-<body><main class="app">
-<section class="hero"><h1>🚘 나의 자동차 점검상황표</h1><p>최근 교체 기록부터 다음 점검 시점까지 한곳에서 관리하세요.</p></section>
-<section class="vehicle">
- <div class="field"><label>차량명</label><input data-car="name" placeholder="예: LF 쏘나타"></div>
- <div class="field"><label>연식</label><input data-car="year" placeholder="예: 2014"></div>
- <div class="field"><label>차량번호</label><input data-car="number" placeholder="직접 입력"></div>
- <div class="field"><label>현재 주행거리(km)</label><input data-car="mileage" type="number" inputmode="numeric" placeholder="예: 138000"></div>
+:root{--bg:#f6f7f8;--card:#fff;--text:#202124;--muted:#6b7280;--line:#e5e7eb;--green:#03c75a;--blue:#2563eb;--orange:#ff7a00}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.65}
+button,input,textarea{font:inherit}.wrap{max-width:980px;margin:auto;padding:16px 14px 90px}
+.hero{background:linear-gradient(135deg,#fffdf8,#fff4e8);border:1px solid #eedbc4;border-radius:24px;padding:24px 20px}
+.hero small{font-weight:800;color:#a44d00}.hero h1{margin:8px 0;font-size:29px;line-height:1.25}.hero p{margin:0;color:var(--muted)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{background:#fff;border:1px solid #eadfce;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
+.toolbar{position:static;background:#fff;border:1px solid var(--line);border-radius:17px;padding:10px;margin:12px 0;display:flex;gap:8px;flex-wrap:wrap;transition:opacity .15s ease}.toolbar.scroll-hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.btn{border:0;border-radius:10px;padding:10px 12px;font-weight:800;background:#eef1f4}.primary{background:var(--green);color:#fff}.blue{background:var(--blue);color:#fff}.orange{background:var(--orange);color:#fff}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}@media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:25px}}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;margin:12px 0}.card h2{font-size:20px;margin:0 0 12px}
+.factgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:520px){.factgrid{grid-template-columns:1fr}}
+.fact{border:1px solid var(--line);border-radius:12px;padding:10px}.fact b{display:block;font-size:12px;color:var(--muted)}
+label{display:block;font-size:12px;font-weight:800;color:#4b5563;margin:10px 0 5px}
+input,textarea{width:100%;border:1px solid #d7dce1;border-radius:10px;padding:10px;background:#fff}textarea{min-height:85px;resize:vertical}
+.voice-ref{margin:6px 0 7px;padding:9px 11px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;color:#64748b;font-size:12px}.voice-ref b{color:#475569}
+.note{background:#fff9f1;border-left:4px solid #d79a3a;padding:10px 12px;border-radius:8px;font-size:13px;color:#5f503b}
+.shot{border:1px solid var(--line);border-radius:15px;overflow:hidden;margin:11px 0;background:#fff}.shothead{display:flex;gap:10px;padding:12px}.num{width:30px;height:30px;border-radius:9px;background:#fff3e8;color:#a65200;display:flex;align-items:center;justify-content:center;font-weight:900}.st{flex:1}.st b{display:block}.st span{font-size:12px;color:var(--muted)}
+.shotbody{padding:0 12px 12px}.photo{min-height:145px;border:1.5px dashed #cbd5e1;border-radius:11px;background:#fafafa;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#94a3b8;font-size:13px;text-align:center}.photo img{width:100%;height:auto}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.actions label,.actions button{margin:0;border:0;border-radius:10px;padding:11px 10px;font-weight:800;font-size:13px;background:#eef2f4;cursor:pointer;text-align:center}.actions .camera{background:#e8fff1;color:#067a38}.actions .gallery{background:#eaf2ff;color:#1559b7;border:1px solid #bdd3ff}.actions button{grid-column:auto}@media(max-width:430px){.actions{grid-template-columns:1fr 1fr}.actions label{font-size:12px;padding:11px 6px}}
+.preview{white-space:pre-wrap;border:1px solid var(--line);border-radius:14px;padding:17px;min-height:260px;line-height:1.9}
+.score{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.score button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px}.score button.on{background:#fff4e6;border-color:#ffc57d;color:#d66800}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px}
+.export-note{background:#eef7ff;border:1px solid #c9e2ff;color:#244b70;padding:10px 12px;border-radius:12px;margin-top:10px;font-size:13px}
+.insert-shot{display:flex;align-items:center;gap:10px;margin:8px 0 12px}
+.insert-shot:before,.insert-shot:after{content:"";height:1px;background:#dbe1e7;flex:1}
+.insert-shot button{border:1px dashed #b8c1cc;background:#fff;color:#475569;border-radius:999px;padding:8px 14px;font-weight:800;font-size:12px;white-space:nowrap}
+.shot{touch-action:manipulation}
+.shot.dragging{opacity:.55;transform:scale(.99);box-shadow:0 10px 30px rgba(15,23,42,.12)}
+.shot.drag-over{outline:2px solid #2563eb;outline-offset:2px}
+.drag-handle{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:9px;background:#eef2f7;color:#475569;font-weight:900;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none}
+.drag-handle:active{cursor:grabbing}
+.shothead{align-items:center}
+.drag-tip{font-size:11px;color:#94a3b8;margin-left:auto;white-space:nowrap}
+.title-edit{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 10px}.title-edit label{margin:0}.title-edit input{margin-top:4px;padding:8px;font-size:13px}.guide-edit{grid-column:1/-1}@media(max-width:560px){.title-edit{grid-template-columns:1fr}.guide-edit{grid-column:auto}.drag-tip{display:none}}
+.hidden{display:none!important}.tag input{width:auto}.stamp-row{border:1px solid var(--line);border-radius:12px;padding:12px;margin:12px 0}.stamp-check{display:flex;align-items:center;gap:9px;font-size:15px}.stamp-check input{width:20px;height:20px;accent-color:#bd561d}.stamp-progress{font-weight:800;background:#fff2e4;border-radius:12px;padding:12px}.stamp-row textarea{min-height:65px}input,textarea{font-size:16px}body{word-break:keep-all;overflow-wrap:anywhere}.note a{color:inherit}@media print{.toolbar,.actions,.title-edit,.insert-shot,.score,.voice-ref,button,.note{display:none!important}.grid{display:block}.card{break-inside:auto}h2,.shothead{break-after:avoid}.shot{break-inside:avoid}.wrap{padding:0}.hero{background:white}.photo{min-height:0}.photo img{max-height:400px;object-fit:contain}}@page{size:A4;margin:14mm}</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<small>NAVER BLOG REVIEW INDEX · LIEBEVOLL</small>
+<h1>성주 리베볼<br>할로윈 카페 리뷰 INDEX</h1>
+<p>입구의 할로윈 분위기부터 세트 음식, 치즈 메뉴와 커피, 스탬프 7개 기록까지</p>
+<div class="chips"><span class="chip">성주카페</span><span class="chip">리베볼</span><span class="chip">할로윈</span><span class="chip">치즈 음식</span><span class="chip">커피</span><span class="chip">스탬프 7개</span></div>
+<div class="export-note">사진 촬영·여러 장 선택·드래그 순서 변경을 지원합니다. 사진 포함 HTML은 열람용, JSON 백업은 계속 편집할 때 사용하세요. 사진 압축률은 원본에 따라 달라집니다.</div>
 </section>
-<section class="summary"><div class="stat"><b id="total">0</b><span>전체 항목</span></div><div class="stat"><b id="good">0</b><span>양호</span></div><div class="stat"><b id="check">0</b><span>점검 필요</span></div><div class="stat"><b id="replace">0</b><span>교체 필요</span></div></section>
-<section class="toolbar"><button class="btn primary" id="add">＋ 항목 추가</button><button class="btn" id="sort">상태순 정렬</button><button class="btn" id="print">인쇄 / PDF</button><button class="btn" id="export">백업 저장</button><button class="btn" id="import">백업 불러오기</button><input id="file" class="hidden" type="file" accept="application/json"></section>
-<section id="cards" class="cards"></section>
-<p class="foot">※ 교체주기는 일반적인 참고값입니다. 차량 제조사 매뉴얼, 부품 상태, 운행 환경과 정비사의 점검 결과를 우선하세요. 입력 내용은 이 브라우저에 자동 저장됩니다.</p>
-</main>
-<template id="tpl"><article class="card" draggable="true"><div class="head"><span class="drag" title="끌어서 순서 변경">☰</span><input class="name" data-k="name"><span class="badge">상태</span></div><div class="grid">
- <div class="field"><label>최근 교체일</label><input type="date" data-k="lastDate"></div>
- <div class="field"><label>교체 당시 주행거리(km)</label><input type="number" inputmode="numeric" data-k="lastKm" placeholder="예: 135000"></div>
- <div class="field"><label>다음 교체 예정일</label><input type="date" data-k="nextDate"></div>
- <div class="field"><label>다음 교체 주행거리(km)</label><input type="number" inputmode="numeric" data-k="nextKm" placeholder="예: 145000"></div>
- <div class="field wide"><label>권장 교체주기</label><input data-k="cycle"></div>
- <div class="field"><label>현재 상태</label><select data-k="status"><option>미입력</option><option>양호</option><option>점검 필요</option><option>교체 필요</option><option>교체 완료</option></select></div>
- <div class="field"><label>정비 비용(원)</label><input type="number" inputmode="numeric" data-k="cost" placeholder="선택 입력"></div>
- <div class="field wide"><label>정비소 / 부품명</label><input data-k="shop" placeholder="예: ○○카센터 / 순정 부품"></div>
- <div class="field wide"><label>메모</label><textarea data-k="memo" placeholder="점검 결과, 이상 증상 등을 기록하세요"></textarea></div>
-</div><div class="actions"><button class="btn danger remove">항목 삭제</button></div></article></template>
+
+<div class="toolbar">
+<button class="btn primary" onclick="draft()">✍️ 블로그 초안 생성</button>
+<button class="btn blue" onclick="copyDraft()">📋 초안 복사</button>
+<button class="btn orange" onclick="exportHTML()">📦 사진포함 HTML 내보내기 (1/5)</button>
+<button class="btn" onclick="exportHTMLNoPhotos()">📄 사진 제외 HTML 내보내기</button>
+<button class="btn" onclick="downloadPhotos()">📥 사진 일괄다운로드</button>
+<button class="btn" onclick="backupJSON()">편집용 JSON 백업</button><label class="btn" style="margin:0;cursor:pointer">백업 불러오기<input type="file" class="hidden" accept=".json" onchange="restoreJSON(event)"></label><button class="btn" onclick="window.print()">인쇄 / PDF</button><span id="saveState" style="margin-left:auto;font-size:12px;color:#6b7280">자동저장 준비</span>
+</div>
+
+<div class="grid"><div>
+<section class="card"><h2>1. 방문 정보와 행사 확인</h2>
+<div class="factgrid"><div class="fact"><b>상호·지역</b>리베볼 · 경북 성주</div><div class="fact"><b>이번 후기의 중심</b>할로윈 행사 · 세트 음식 · 스탬프 7개</div></div>
+<div class="note" style="margin-top:10px">사용자 경험: 할로윈 행사 중이며 치즈로 만든 음식과 커피가 맛있었다. 올해 행사 기간·세트 구성·가격·스탬프 조건·완료 혜택은 공개 안내로 확인하지 못했으므로 현장 안내대로 입력하세요.</div>
+<label>글 제목</label><input id="postTitle" value="성주 리베볼 할로윈 카페 후기｜세트 음식과 스탬프 7개 기록">
+<label>주소</label><input id="address" placeholder="현장 안내 또는 지도에서 확인한 주소">
+<label>영업시간</label><input id="hours" placeholder="오늘 기준 영업시간·휴무 확인">
+<label>할로윈 행사 기간</label><input id="eventPeriod" placeholder="정확한 시작일·종료일을 확인한 경우만 입력">
+<label>방문일</label><input id="visitDate" type="date">
+<label>인원</label><input id="party" placeholder="예: 어른 2명 + 아이 1명">
+<label>예약/웨이팅</label><input id="reservation" placeholder="예약 여부·현장 대기시간">
+<label>주문 메뉴</label><input id="orderMenu" placeholder="실제로 주문한 세트·치즈 음식·커피 이름">
+<label>총 결제금액</label><input id="price" placeholder="예: 74,000원">
+</section>
+
+<section class="card"><h2>2. 할로윈 세트 음식 기록</h2><label>세트 이름</label><input id="setName" placeholder="메뉴판에 적힌 정확한 이름"><label>세트 구성</label><textarea id="setItems" placeholder="음식·디저트·음료를 구분해 기록"></textarea><label>세트 가격</label><input id="setPrice" placeholder="실제 메뉴판·영수증 금액"><label>주문·행사 참여 안내</label><textarea id="setRules" placeholder="세트 주문과 스탬프 참여가 연결되는지 현장 안내대로 기록"></textarea><div class="voice-ref">메뉴판 → 세트 전체 → 음식 근접 → 커피 순서로 사진을 남기세요. 메뉴 이름과 맛을 분리해서 적으면 글이 자연스럽습니다.</div></section>
+<section class="card"><h2>리뷰 목차</h2><ol><li>입구부터 준비된 할로윈 분위기</li><li>할로윈 세트 음식과 주문한 메뉴</li><li>맛있었던 치즈 음식과 커피</li><li>스탬프 참여 방법과 1~7번 기록</li><li>완료 여부·혜택과 방문 팁</li></ol></section>
+
+<section class="card"><h2>3. 사진 촬영 + 사진별 음성메모</h2><div id="shots"></div><button class="btn" style="width:100%" onclick="addShot()">＋ 맨 아래에 사진 항목 추가</button></section>
+</div><div>
+
+<section class="card"><h2>4. 핵심 후기 메모</h2>
+<label>주차</label><div class="voice-ref"><b>말하기 참고:</b> 주차 공간이 넉넉한지, 안내요원이 있는지, 차량 진입이 쉬운지, 아이와 내리기 편한지</div><textarea id="parking" placeholder="주차 후기를 입력하세요"></textarea>
+<label>예약·웨이팅</label><div class="voice-ref"><b>말하기 참고:</b> 예약 여부, 대기시간, 룸과 홀 예약 차이, 피크시간 방문 팁</div><textarea id="waiting" placeholder="예약과 웨이팅 후기를 입력하세요"></textarea>
+<label>외관·첫인상</label><div class="voice-ref"><b>말하기 참고:</b> 건물과 입구가 고급스러운지, 오픈주방이 보이는지, 처음 들어갈 때 받은 느낌</div><textarea id="exterior" placeholder="입구에서 본 장식·인상 깊었던 장면">입구부터 할로윈 행사를 준비해 두었다.</textarea>
+<label>매장 분위기</label><div class="voice-ref"><b>말하기 참고:</b> 좌석 간격, 환기와 소음, 테이블 크기, 가족 외식이나 모임에 적합한지</div><textarea id="interior" placeholder="매장 분위기를 입력하세요"></textarea>
+<label>행사 안내·서비스</label><div class="voice-ref"><b>말하기 참고:</b> 행사 설명이 이해하기 쉬웠는지, 주문·수령 방식, 직원 안내</div><textarea id="service" placeholder="행사 안내와 서비스 경험을 입력하세요"></textarea>
+</section>
+
+<section class="card"><h2>5. 음식 평가</h2>
+<label>치즈 음식 평가</label><div class="voice-ref"><b>말하기 참고:</b> 실제 메뉴 이름 → 맛있었던 점 → 식감·양·아쉬움. 말하지 않은 풍미는 지어내지 않습니다.</div><textarea id="mainDish" placeholder="치즈 음식의 구체적인 맛을 추가하세요">치즈로 만든 음식들이 맛있었다.</textarea>
+<label>커피 평가</label><div class="voice-ref"><b>말하기 참고:</b> 실제 커피 이름 → 맛있었던 점. 산미·고소함·향은 직접 느낀 내용만 기록합니다.</div><textarea id="meal" placeholder="커피 이름과 직접 느낀 맛을 추가하세요">커피도 맛있었다.</textarea>
+<label>아이 동반 관점</label><div class="voice-ref"><b>말하기 참고:</b> 아이와 방문했다면 실제 반응·행사 난이도·무서워한 구간·쉬기 편한지 기록</div><textarea id="kid" placeholder="아이 동반 관점을 입력하세요"></textarea>
+<label>가격·재방문</label><div class="voice-ref"><b>말하기 참고:</b> 가격대, 분위기와 맛 대비 만족도, 다음에 먹고 싶은 메뉴</div><textarea id="value" placeholder="가격과 재방문 의견을 입력하세요"></textarea>
+<label>전체 평점</label><div class="score" id="score"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></div>
+</section>
+
+<section class="card"><h2>6. 스탬프 7개 모으기</h2><div class="note">아래 1~7은 기록 순번입니다. 실제 코스·미션·장소를 의미하지 않습니다. 모은 스탬프만 완료로 표시하세요.</div><label>참여 시작 방법</label><textarea id="stampStart" placeholder="카드 수령 위치·참가비·참여 조건 등 현장 안내"></textarea><label>스탬프 완료 후 안내·혜택</label><textarea id="stampReward" placeholder="7개 완료 시 혜택·확인 장소·교환 조건. 확인되지 않았다면 비워 두세요"></textarea><div id="stampProgress" class="stamp-progress"></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone1" type="checkbox"> 스탬프 1 기록 완료</label><input id="stampPlace1" placeholder="1번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo1" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone2" type="checkbox"> 스탬프 2 기록 완료</label><input id="stampPlace2" placeholder="2번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo2" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone3" type="checkbox"> 스탬프 3 기록 완료</label><input id="stampPlace3" placeholder="3번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo3" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone4" type="checkbox"> 스탬프 4 기록 완료</label><input id="stampPlace4" placeholder="4번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo4" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone5" type="checkbox"> 스탬프 5 기록 완료</label><input id="stampPlace5" placeholder="5번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo5" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone6" type="checkbox"> 스탬프 6 기록 완료</label><input id="stampPlace6" placeholder="6번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo6" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div><div class="stamp-row"><label class="stamp-check"><input id="stampDone7" type="checkbox"> 스탬프 7 기록 완료</label><input id="stampPlace7" placeholder="7번째 장소·미션·조건 (실제 안내대로)"><textarea id="stampMemo7" placeholder="모으는 과정·순서·걸린 시간·느낀 점"></textarea></div></section><section class="card"><h2>7. 해시태그</h2><div class="tags"><label class="tag"><input type="checkbox" class="tagcheck" value="성주카페" checked>#성주카페</label><label class="tag"><input type="checkbox" class="tagcheck" value="리베볼" checked>#리베볼</label><label class="tag"><input type="checkbox" class="tagcheck" value="성주리베볼" checked>#성주리베볼</label><label class="tag"><input type="checkbox" class="tagcheck" value="리베볼할로윈" checked>#리베볼할로윈</label><label class="tag"><input type="checkbox" class="tagcheck" value="성주카페후기" checked>#성주카페후기</label><label class="tag"><input type="checkbox" class="tagcheck" value="치즈음식" checked>#치즈음식</label><label class="tag"><input type="checkbox" class="tagcheck" value="커피" checked>#커피</label></div></section>
+</div></div>
+<section class="card"><h2>8. 네이버 블로그 초안</h2><div class="preview" id="draft">작성한 메모만 반영합니다. 스탬프를 모으지 않았거나 혜택을 확인하지 않았다면 완료 후기로 쓰지 않습니다.</div></section>
+</div>
+
 <script>
-const KEY='myCarMaintenanceV1';
-const defaults=[
- ['엔진오일','5,000~10,000km 또는 6~12개월'],['에어컨 필터','10,000~15,000km 또는 6~12개월'],['와이퍼','6~12개월'],['브레이크 패드','30,000~60,000km'],['브레이크 오일','2년 또는 약 40,000km'],['타이어','40,000~60,000km 또는 마모한계선 도달 시'],['배터리','3~5년'],['냉각수','40,000~100,000km 또는 2~5년'],['점화플러그','40,000~100,000km(차종·플러그 종류별 상이)'],['미션오일','60,000~100,000km(제조사 권장 확인 필수)']
-].map((x,i)=>({id:Date.now()+i,name:x[0],cycle:x[1],lastDate:'',lastKm:'',nextDate:'',nextKm:'',status:'미입력',cost:'',shop:'',memo:''}));
-let state={car:{name:'',year:'',number:'',mileage:''},items:defaults}; let dragged=null;
-try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved?.items)state=saved}catch(e){}
-const cards=document.querySelector('#cards'),tpl=document.querySelector('#tpl');
-const totalEl=document.querySelector('#total'),goodEl=document.querySelector('#good'),checkEl=document.querySelector('#check'),replaceEl=document.querySelector('#replace');
-const addBtn=document.querySelector('#add'),sortBtn=document.querySelector('#sort'),printBtn=document.querySelector('#print'),exportBtn=document.querySelector('#export'),importBtn=document.querySelector('#import'),fileInput=document.querySelector('#file');
-function save(){localStorage.setItem(KEY,JSON.stringify(state));summary()}
-function summary(){const n=s=>state.items.filter(x=>x.status===s).length;totalEl.textContent=state.items.length;goodEl.textContent=n('양호')+n('교체 완료');checkEl.textContent=n('점검 필요');replaceEl.textContent=n('교체 필요')}
-function render(){cards.innerHTML='';state.items.forEach((item,index)=>{const el=tpl.content.firstElementChild.cloneNode(true);el.dataset.id=item.id;el.dataset.status=item.status;el.querySelectorAll('[data-k]').forEach(inp=>{inp.value=item[inp.dataset.k]??'';inp.addEventListener('input',()=>{item[inp.dataset.k]=inp.value;el.dataset.status=item.status;el.querySelector('.badge').textContent=item.status;save()})});el.querySelector('.badge').textContent=item.status;el.querySelector('.remove').onclick=()=>{if(confirm(`'${item.name}' 항목을 삭제할까요?`)){state.items.splice(index,1);save();render()}};el.ondragstart=()=>dragged=item.id;el.ondragover=e=>e.preventDefault();el.ondrop=e=>{e.preventDefault();const from=state.items.findIndex(x=>x.id==dragged),to=state.items.findIndex(x=>x.id==item.id);if(from<0||to<0||from===to)return;const [m]=state.items.splice(from,1);state.items.splice(to,0,m);save();render()};cards.append(el)});summary()}
-document.querySelectorAll('[data-car]').forEach(inp=>{inp.value=state.car[inp.dataset.car]||'';inp.oninput=()=>{state.car[inp.dataset.car]=inp.value;save()}});
-addBtn.onclick=()=>{state.items.push({id:Date.now(),name:'새 점검 항목',cycle:'',lastDate:'',lastKm:'',nextDate:'',nextKm:'',status:'미입력',cost:'',shop:'',memo:''});save();render();setTimeout(()=>cards.lastElementChild.scrollIntoView({behavior:'smooth',block:'center'}),50)};
-sortBtn.onclick=()=>{const order={'교체 필요':0,'점검 필요':1,'미입력':2,'양호':3,'교체 완료':4};state.items.sort((a,b)=>order[a.status]-order[b.status]);save();render()};printBtn.onclick=()=>window.print();
-exportBtn.onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`자동차_점검상황표_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href)};
-importBtn.onclick=()=>fileInput.click();fileInput.onchange=async()=>{try{const x=JSON.parse(await fileInput.files[0].text());if(!x.items)throw 0;state=x;save();location.reload()}catch(e){alert('올바른 백업 파일이 아닙니다.')}};
-render();
-</script></body></html>
+const KEY='liebevoll-halloween-index-v1';
+const base=[["입구·할로윈 첫인상", "입구와 실제 행사 장식", "입구에서 눈에 들어온 장식과 첫인상을 기록하세요."], ["행사 안내", "기간·참여 조건 안내문", "올해 행사 기간과 세트·스탬프 조건을 안내문대로 기록하세요."], ["메뉴판·세트 구성", "세트 이름·구성·가격", "주문한 세트와 메뉴판 정보를 기록하세요."], ["세트 전체", "음식과 음료가 함께 보이는 사진", "세트에 실제로 포함된 메뉴를 적으세요."], ["치즈 음식", "맛있었던 치즈 메뉴 근접", "메뉴 이름과 직접 느낀 맛을 기록하세요."], ["커피", "주문한 커피", "커피 이름과 맛있었던 점을 적으세요."], ["스탬프 참여 시작", "카드·안내·출발 지점", "참여 방법과 실제 시작 과정을 기록하세요."], ["스탬프 1", "1번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["스탬프 2", "2번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["스탬프 3", "3번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["스탬프 4", "4번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["스탬프 5", "5번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["스탬프 6", "6번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["스탬프 7", "7번째 스탬프 과정 사진", "실제 위치·조건·모으는 과정·느낀 점을 기록하세요."], ["행사 공간·분위기", "기억에 남은 공간", "사진으로 확인한 장면과 본인의 느낌을 연결하세요."], ["스탬프 결과·마무리", "현재 모은 개수·완료 확인", "7개를 모두 모았는지, 실제로 받은 혜택이 있는지 구분하세요."]];
+let shots=[],rating=0;
+function uid(){return Math.random().toString(36).slice(2,9)}
+function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function save(){
+ const fields={}; document.querySelectorAll('input[id],textarea[id]').forEach(e=>fields[e.id]=e.type==='checkbox'?e.checked:e.value);
+ fields._tags=[...document.querySelectorAll('.tagcheck:checked')].map(e=>e.value);
+ try{localStorage.setItem(KEY,JSON.stringify({fields,shots,rating}));document.getElementById('saveState').textContent='자동저장 완료 ✓'}catch(e){document.getElementById('saveState').textContent='자동저장 공간 부족 · JSON 백업을 저장하세요'}
+ updateStampProgress();
+}
+function init(){
+ let o=null; try{o=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+ if(o){shots=o.shots||[];rating=o.rating||0;Object.entries(o.fields||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e){if(e.type==='checkbox')e.checked=!!v;else e.value=v}})}
+ if(!shots.length)shots=base.map(x=>({id:uid(),title:x[0],hint:x[1],guide:x[2],memo:'',img:''}));
+ if(o?.fields?._tags)document.querySelectorAll('.tagcheck').forEach(e=>e.checked=o.fields._tags.includes(e.value));
+ document.querySelectorAll('input[id],textarea[id],.tagcheck').forEach(e=>e.addEventListener('input',save));
+ render(); setRating(rating,false); save();
+ syncToolbarVisibility();
+}
+function syncToolbarVisibility(){
+ const toolbar=document.querySelector('.toolbar');
+ if(toolbar)toolbar.classList.toggle('scroll-hidden',(window.scrollY||document.documentElement.scrollTop||0)>50);
+}
+function render(){
+ const box=document.getElementById('shots'); box.innerHTML='';
+ shots.forEach((s,i)=>{
+  const el=document.createElement('div');
+  el.className='shot';
+  el.dataset.id=s.id;
+  el.setAttribute('draggable','true');
+  el.innerHTML=`<div class="shothead">
+    <div class="drag-handle" title="드래그해서 순서 변경">☰</div>
+    <div class="num">${i+1}</div>
+    <div class="st"><b>${esc(s.title)}</b><span>${esc(s.hint)}</span></div>
+    <div class="drag-tip">끌어서 이동</div>
+  </div>
+  <div class="title-edit">
+   <label>촬영 타이틀<input value="${esc(s.title)}" oninput="updateShot('${s.id}','title',this.value)" placeholder="예: 외관·간판"></label>
+   <label>촬영 설명<input value="${esc(s.hint)}" oninput="updateShot('${s.id}','hint',this.value)" placeholder="예: 간판과 건물 전체"></label>
+   <label class="guide-edit">음성 메모 참고문구<input value="${esc(s.guide)}" oninput="updateShot('${s.id}','guide',this.value)" placeholder="말할 내용을 입력하세요"></label>
+  </div>
+  <div class="shotbody"><div class="photo">${s.img?`<img src="${s.img}" alt="${esc(s.title)}">`:'사진을 촬영하거나 보관함에서 선택하세요'}</div>
+  <div class="actions"><label class="camera">📷 바로 촬영<input class="hidden" type="file" accept="image/*" capture="environment" onchange="photo(event,'${s.id}')"></label>
+  <label class="gallery">🖼️ 보관함에서 불러오기<input class="hidden" type="file" accept="image/*" multiple onchange="photo(event,'${s.id}')"></label>
+  <button onclick="delPhoto('${s.id}')">사진삭제</button><button onclick="delShot('${s.id}')">항목삭제</button></div>
+  <label>사진별 코멘트</label><div class="voice-ref"><b>음성 메모 참고:</b> ${esc(s.guide)}</div>
+  <textarea placeholder="사진별 코멘트를 입력하세요" oninput="memo('${s.id}',this.value)">${esc(s.memo||'')}</textarea></div>`;
+  box.appendChild(el);
+
+  const insert=document.createElement('div');
+  insert.className='insert-shot';
+  insert.innerHTML=`<button type="button" onclick="insertShot(${i+1})">＋ 여기 사이에 사진 항목 추가</button>`;
+  box.appendChild(insert);
+ });
+ bindDragAndDrop();
+}
+
+let dragId=null;
+function bindDragAndDrop(){
+ document.querySelectorAll('#shots .shot').forEach(el=>{
+  el.addEventListener('dragstart',e=>{
+   dragId=el.dataset.id;
+   el.classList.add('dragging');
+   try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',dragId)}catch(_){}
+  });
+  el.addEventListener('dragend',()=>{
+   dragId=null;
+   document.querySelectorAll('#shots .shot').forEach(x=>x.classList.remove('dragging','drag-over'));
+  });
+  el.addEventListener('dragover',e=>{
+   e.preventDefault();
+   if(el.dataset.id!==dragId)el.classList.add('drag-over');
+   try{e.dataTransfer.dropEffect='move'}catch(_){}
+  });
+  el.addEventListener('dragleave',()=>el.classList.remove('drag-over'));
+  el.addEventListener('drop',e=>{
+   e.preventDefault();
+   el.classList.remove('drag-over');
+   const fromId=dragId || (()=>{try{return e.dataTransfer.getData('text/plain')}catch(_){return ''}})();
+   const toId=el.dataset.id;
+   if(fromId&&toId&&fromId!==toId)moveShotBefore(fromId,toId);
+  });
+ });
+
+ // Mobile / touch long-press style drag via Pointer Events on handle
+ document.querySelectorAll('#shots .drag-handle').forEach(handle=>{
+  let active=false, sourceId=null, ghost=null, lastTargetId=null;
+  const shot=handle.closest('.shot');
+  handle.addEventListener('pointerdown',e=>{
+   if(e.pointerType==='mouse') return; // desktop uses native drag
+   active=true; sourceId=shot.dataset.id;
+   handle.setPointerCapture?.(e.pointerId);
+   shot.classList.add('dragging');
+   ghost=shot.cloneNode(true);
+   ghost.style.position='fixed';
+   ghost.style.left='12px';
+   ghost.style.right='12px';
+   ghost.style.top=(e.clientY-35)+'px';
+   ghost.style.zIndex='9999';
+   ghost.style.pointerEvents='none';
+   ghost.style.opacity='.85';
+   ghost.style.maxHeight='120px';
+   ghost.style.overflow='hidden';
+   document.body.appendChild(ghost);
+   e.preventDefault();
+  });
+  handle.addEventListener('pointermove',e=>{
+   if(!active) return;
+   if(ghost) ghost.style.top=(e.clientY-35)+'px';
+   const target=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.shot');
+   document.querySelectorAll('#shots .shot').forEach(x=>x.classList.remove('drag-over'));
+   if(target && target.dataset.id!==sourceId){
+    target.classList.add('drag-over');
+    lastTargetId=target.dataset.id;
+   }
+   e.preventDefault();
+  });
+  const finish=e=>{
+   if(!active) return;
+   active=false;
+   try{handle.releasePointerCapture?.(e.pointerId)}catch(_){}
+   shot.classList.remove('dragging');
+   document.querySelectorAll('#shots .shot').forEach(x=>x.classList.remove('drag-over'));
+   if(ghost){ghost.remove();ghost=null}
+   if(sourceId&&lastTargetId&&sourceId!==lastTargetId)moveShotBefore(sourceId,lastTargetId);
+   sourceId=null; lastTargetId=null;
+  };
+  handle.addEventListener('pointerup',finish);
+  handle.addEventListener('pointercancel',finish);
+ });
+}
+function moveShotBefore(fromId,toId){
+ const fromIndex=shots.findIndex(x=>x.id===fromId);
+ const toIndex=shots.findIndex(x=>x.id===toId);
+ if(fromIndex<0||toIndex<0||fromIndex===toIndex)return;
+ const [item]=shots.splice(fromIndex,1);
+ const adjustedTo=shots.findIndex(x=>x.id===toId);
+ shots.splice(adjustedTo,0,item);
+ render();
+ save();
+}
+async function photo(e,i){const files=[...e.target.files||[]];if(!files.length)return;let index=shots.findIndex(x=>x.id===i);for(let j=0;j<files.length;j++){const data=await new Promise((resolve,reject)=>{let r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(files[j])});const img=await compressImage(data,.45);if(j===0)shots[index].img=img;else shots.splice(index+j,0,{...newShot(),title:'추가 사진 '+(j+1),img});}render();save()}
+function memo(i,v){const s=shots.find(x=>x.id===i);if(s)s.memo=v;save()}
+function updateShot(i,key,value){const s=shots.find(x=>x.id===i);if(!s||!['title','hint','guide'].includes(key))return;s[key]=value;save()}
+function delPhoto(i){const s=shots.find(x=>x.id===i);if(s){s.img='';render();save()}}
+function delShot(i){shots=shots.filter(x=>x.id!==i);render();save()}
+function newShot(){return {id:uid(),title:'추가 사진',hint:'필요한 장면',guide:'사진에 보이는 것 → 실제 느낀 점 → 블로그에 남길 포인트 순서로 말해보세요.',memo:'',img:''}}
+function addShot(){shots.push(newShot());render();save()}
+function insertShot(index){shots.splice(index,0,newShot());render();save()}
+function setRating(n,doSave=true){rating=Number(n)||0;document.querySelectorAll('#score button').forEach(b=>b.classList.toggle('on',Number(b.dataset.v)<=rating));if(doSave)save()}
+document.addEventListener('click',e=>{if(e.target.matches('#score button'))setRating(e.target.dataset.v)});
+function v(i){return(document.getElementById(i)?.value||'').trim()}
+function sm(k){const s=shots.find(x=>x.title.includes(k));return s?.memo?.trim()||''}
+function p(h,t){return t?h+'\n'+t+'\n\n':''}
+function draft(){
+ let t=v('postTitle')+'\n\n성주 리베볼에 다녀왔다. 이번 방문에서는 할로윈 행사와 세트 음식, 스탬프 7개를 모으는 행사에 대해 정리해 보려 한다. 치즈로 만든 음식들이 맛있었고, 커피도 맛있었다.\n\n';
+ const facts=[['방문일','visitDate'],['인원','party'],['주소','address'],['영업시간','hours'],['행사 기간','eventPeriod'],['주문 메뉴','orderMenu'],['결제금액','price']];
+ const info=facts.filter(([a,k])=>v(k)).map(([a,k])=>a+' : '+v(k)).join('\n');if(info)t+='방문 정보\n'+info+'\n\n';
+ t+=p('입구부터 준비된 할로윈 분위기',v('exterior')||sm('입구'));
+ t+=p('할로윈 세트 음식', [['세트 이름','setName'],['구성','setItems'],['가격','setPrice']].filter(([a,k])=>v(k)).map(([a,k])=>a+' : '+v(k)).join('\n'));
+ t+=p('주문과 행사 참여 안내',v('setRules')||sm('행사 안내'));
+ t+=p('맛있었던 치즈 음식',v('mainDish')||sm('치즈 음식'));t+=p('커피도 맛있었다',v('meal')||sm('커피'));
+ t+=p('스탬프 참여 시작',v('stampStart')||sm('스탬프 참여 시작'));
+ for(let i=1;i<=7;i++){let place=v('stampPlace'+i),memo=v('stampMemo'+i)||sm('스탬프 '+i);let done=document.getElementById('stampDone'+i).checked;if(place||memo||done)t+=p('스탬프 '+i+(done?' · 수집 완료':' · 과정 메모'),[place,memo].filter(Boolean).join('\n'));}
+ const n=[1,2,3,4,5,6,7].filter(i=>document.getElementById('stampDone'+i).checked).length;
+ if(n)t+=p('스탬프 결과',n===7?'스탬프 7개를 모두 모았다.':'기록상 모은 스탬프는 '+n+'개다.');
+ t+=p('완료 후 안내·혜택',v('stampReward'));t+=p('매장 분위기',v('interior'));t+=p('주차와 대기',[v('parking'),v('waiting'),v('reservation')].filter(Boolean).join('\n'));t+=p('아이와 함께 방문했다면',v('kid'));t+=p('아쉬운 점과 재방문',v('value'));
+ if(rating)t+=p('개인 만족도',rating+'/5점');
+ t+=[...document.querySelectorAll('.tagcheck:checked')].map(x=>'#'+x.value).join(' ');
+ document.getElementById('draft').textContent=t;save();return t;
+}
+
+async function copyDraft(){try{await navigator.clipboard.writeText(draft());alert('초안을 복사했습니다.')}catch(e){alert('복사가 제한되었습니다.')}}
+
+/* 이미지 크기를 원본 데이터 용량의 약 20%(1/5) 수준으로 줄인다.
+   HEIC 등 브라우저가 읽은 이미지는 JPEG로 내보낸다. */
+function compressImage(dataURL,targetRatio=0.20){
+ return new Promise((resolve)=>{
+  if(!dataURL||!dataURL.startsWith('data:image/')){resolve(dataURL);return}
+  const img=new Image();
+  img.onload=()=>{
+   const originalBytes=Math.max(1,Math.floor((dataURL.length-(dataURL.indexOf(',')+1))*0.75));
+   const targetBytes=Math.max(20*1024,Math.floor(originalBytes*targetRatio));
+   let scale=Math.min(1,Math.sqrt(targetRatio)*1.35);
+   let quality=0.82;
+   let tries=0,best=dataURL;
+   const work=()=>{
+    const c=document.createElement('canvas');
+    c.width=Math.max(1,Math.round(img.naturalWidth*scale));
+    c.height=Math.max(1,Math.round(img.naturalHeight*scale));
+    const ctx=c.getContext('2d',{alpha:false});
+    ctx.drawImage(img,0,0,c.width,c.height);
+    const out=c.toDataURL('image/jpeg',quality);
+    best=out;
+    const bytes=Math.floor((out.length-(out.indexOf(',')+1))*0.75);
+    if(bytes<=targetBytes || tries>=8 || (c.width<600 && c.height<600)){resolve(best);return}
+    tries++;
+    if(quality>0.48)quality-=0.09; else scale*=0.82;
+    setTimeout(work,0);
+   };
+   work();
+  };
+  img.onerror=()=>resolve(dataURL);
+  img.src=dataURL;
+ });
+}
+
+function applyCurrentFormValues(clone){
+ document.querySelectorAll('input,textarea').forEach(src=>{
+  if(!src.id)return;
+  const dst=clone.querySelector('#'+CSS.escape(src.id));
+  if(!dst)return;
+  if(src.tagName==='TEXTAREA')dst.textContent=src.value;
+  else if(src.type==='checkbox'||src.type==='radio'){
+   if(src.checked)dst.setAttribute('checked','checked'); else dst.removeAttribute('checked');
+  } else dst.setAttribute('value',src.value);
+ });
+}
+
+async function exportHTML(){
+ save();
+ const btn=window.event?.target;
+ const old=btn?.textContent;
+ if(btn){btn.disabled=true;btn.textContent='⏳ 사진 압축 중...'}
+ const state=document.getElementById('saveState');
+ state.textContent='사진을 1/5 용량으로 압축 중…';
+ try{
+  const compressed=[];
+  for(let i=0;i<shots.length;i++){
+   const s=shots[i];
+   state.textContent=`사진 압축 중 ${i+1}/${shots.length}`;
+   compressed.push({...s,img:s.img?await compressImage(s.img,0.20):''});
+  }
+
+  const clone=document.documentElement.cloneNode(true);
+  applyCurrentFormValues(clone);
+
+  const shotBox=clone.querySelector('#shots');
+  if(shotBox){
+   shotBox.innerHTML='';
+   compressed.forEach((s,i)=>{
+    const wrap=document.createElement('div');wrap.className='shot';
+    wrap.innerHTML=`<div class="shothead"><div class="num">${i+1}</div><div class="st"><b>${esc(s.title)}</b><span>${esc(s.hint)}</span></div></div>
+    <div class="shotbody"><div class="photo">${s.img?`<img src="${s.img}" alt="${esc(s.title)}">`:'사진 없음'}</div>
+    <label>사진별 코멘트</label><div class="voice-ref">${esc(s.memo||'')}</div></div>`;
+    shotBox.appendChild(wrap);
+   });
+  }
+
+  const toolbar=clone.querySelector('.toolbar');
+  if(toolbar)toolbar.innerHTML='<div style="font-size:13px;font-weight:800">📦 사진 1/5 압축 포함 내보내기 완료본</div>';
+
+  clone.querySelectorAll('.insert-shot,.drag-handle,.drag-tip').forEach(x=>x.remove());
+  clone.querySelectorAll('.shot').forEach(x=>{x.removeAttribute('draggable');x.removeAttribute('data-id');x.classList.remove('dragging','drag-over')});
+  clone.querySelectorAll('button[onclick],input[type=file]').forEach(x=>x.remove());
+  const addBtn=[...clone.querySelectorAll('button')].find(x=>x.textContent.includes('사진 항목 추가'));
+  if(addBtn)addBtn.remove();
+
+  const exportScript=clone.querySelector('script');
+  if(exportScript)exportScript.remove();
+
+  const draftEl=clone.querySelector('#draft');
+  const currentDraft=document.getElementById('draft');
+  if(draftEl&&currentDraft)draftEl.textContent=currentDraft.textContent;
+
+  const out='<!doctype html>\n'+clone.outerHTML;
+  const blob=new Blob([out],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='성주_리베볼_할로윈_리뷰_사진포함_1-5압축_'+new Date().toISOString().slice(0,10)+'.html';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  state.textContent='HTML 내보내기 완료 ✓';
+ }catch(err){
+  console.error(err); alert('HTML 내보내기에 실패했습니다. 사진 수를 줄이거나 Safari에서 다시 시도해주세요.');
+  state.textContent='내보내기 실패';
+ }finally{
+  if(btn){btn.disabled=false;btn.textContent=old}
+ }
+}
+
+
+async function exportHTMLNoPhotos(){
+ save();
+ const state=document.getElementById('saveState');
+ state.textContent='사진 제외 HTML 만드는 중…';
+ try{
+  const clone=document.documentElement.cloneNode(true);
+  applyCurrentFormValues(clone);
+
+  const shotBox=clone.querySelector('#shots');
+  if(shotBox){
+   shotBox.innerHTML='';
+   shots.forEach((s,i)=>{
+    const wrap=document.createElement('div');wrap.className='shot';
+    wrap.innerHTML=`<div class="shothead"><div class="num">${i+1}</div><div class="st"><b>${esc(s.title)}</b><span>${esc(s.hint)}</span></div></div>
+    <div class="shotbody">
+    <label>사진별 코멘트</label><div class="voice-ref">${esc(s.memo||'')}</div></div>`;
+    shotBox.appendChild(wrap);
+   });
+  }
+
+  const toolbar=clone.querySelector('.toolbar');
+  if(toolbar)toolbar.innerHTML='<div style="font-size:13px;font-weight:800">📄 사진 제외 HTML 내보내기 완료본</div>';
+
+  clone.querySelectorAll('.insert-shot,.drag-handle,.drag-tip').forEach(x=>x.remove());
+  clone.querySelectorAll('.shot').forEach(x=>{x.removeAttribute('draggable');x.removeAttribute('data-id');x.classList.remove('dragging','drag-over')});
+  clone.querySelectorAll('button[onclick],input[type=file]').forEach(x=>x.remove());
+
+  const exportScript=clone.querySelector('script');
+  if(exportScript)exportScript.remove();
+
+  const draftEl=clone.querySelector('#draft');
+  const currentDraft=document.getElementById('draft');
+  if(draftEl&&currentDraft)draftEl.textContent=currentDraft.textContent;
+
+  const out='<!doctype html>\n'+clone.outerHTML;
+  const blob=new Blob([out],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  const url=URL.createObjectURL(blob);
+  a.href=url;
+  a.download='성주_리베볼_할로윈_리뷰_사진제외_'+new Date().toISOString().slice(0,10)+'.html';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  state.textContent='사진 제외 HTML 내보내기 완료 ✓';
+ }catch(err){
+  console.error(err);
+  alert('사진 제외 HTML 내보내기에 실패했습니다.');
+  state.textContent='내보내기 실패';
+ }
+}
+
+function downloadPhotos(){
+ const arr=shots.filter(x=>x.img);
+ if(!arr.length){alert('사진이 없습니다.');return}
+ arr.forEach((s,i)=>{const a=document.createElement('a');a.href=s.img;a.download=String(i+1).padStart(2,'0')+'_'+s.title+'.jpg';document.body.appendChild(a);a.click();a.remove()});
+}
+function updateStampProgress(){const n=[1,2,3,4,5,6,7].filter(i=>document.getElementById('stampDone'+i).checked).length;document.getElementById('stampProgress').textContent=n+' / 7개 기록 완료'+(n===7?' · 모두 모았어요!':'');}
+function backupJSON(){save();const fields={};document.querySelectorAll('input[id],textarea[id]').forEach(e=>fields[e.id]=e.type==='checkbox'?e.checked:e.value);fields._tags=[...document.querySelectorAll('.tagcheck:checked')].map(e=>e.value);const url=URL.createObjectURL(new Blob([JSON.stringify({kind:'liebevoll-index',fields,shots,rating},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='성주_리베볼_편집백업.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);}
+async function restoreJSON(e){const f=e.target.files?.[0];if(!f)return;try{const o=JSON.parse(await f.text());if(o.kind!=='liebevoll-index'||!Array.isArray(o.shots)||!o.fields)throw Error();if(!confirm('현재 메모와 사진을 백업 내용으로 바꿀까요?'))return;shots=o.shots.map(x=>({id:uid(),title:String(x.title||''),hint:String(x.hint||''),guide:String(x.guide||''),memo:String(x.memo||''),img:/^data:image\//.test(x.img||'')?x.img:''}));Object.entries(o.fields).forEach(([k,val])=>{const el=document.getElementById(k);if(el){if(el.type==='checkbox')el.checked=!!val;else el.value=val}});if(o.fields._tags)document.querySelectorAll('.tagcheck').forEach(el=>el.checked=o.fields._tags.includes(el.value));render();setRating(o.rating);save();draft();}catch(err){alert('이 INDEX의 JSON 백업 파일인지 확인해 주세요.');}e.target.value='';}
+window.addEventListener('load',init);
+window.addEventListener('scroll',syncToolbarVisibility,{passive:true});
+</script>
+</body>
+</html>
